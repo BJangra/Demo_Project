@@ -1,0 +1,19 @@
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+	<h2 style="color:brown"><i>Admin Dashboard</i></h2>
+
+	<p style="color:brown">Welcome, Admin !! Manage your products and orders from here..</p>
+
+	<ul style="list-style-type:none">
+		<li>
+			<a href="@Url.Action("Index","Home" ,new {area ="Admin"})"> <h5><i>Manage Products </i></h5></a>
+		</li>
+
+		<li>
+			<a href="@Url.Action("Index","AdminOrder" ,new {area ="Admin"})"> <h5><i>Manage Orders </i></h5></a>
+		</li>
+
+	</ul>
+</div>

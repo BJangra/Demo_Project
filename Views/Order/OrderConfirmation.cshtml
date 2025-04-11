@@ -1,0 +1,10 @@
+﻿@model Order
+<div class="text-center">
+	<h2 style="color:orangered">Order Confirmed</h2>
+	<h4 style="color:orange">Thank You For Your order...!! </h4>
+	<h6>Order Id : <strong>@Model.Id</strong></h6>
+	<h6>Total Amount: <strong>@Model.TotalAmount</strong></h6>
+	<a href="@Url.Action("Index","Home")" class="btn btn-secondary btn-sm">Continue Shoping</a>
+
+	<a href="@Url.Action("OrderHistory")" class="btn btn-secondary btn-sm">View Order</a>
+</div>

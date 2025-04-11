@@ -1,0 +1,51 @@
+﻿@model FirstProject_ECommerce.Models.Order;
+<h3 style="color:brown" > <i>Order Details </i></h3>
+<table class="table text-center table-info" style="width: 50%;">
+	
+	 <thead>  
+	 <tr>
+		 <th>Order Id:</th>
+		 <th>Order Date:</th>
+		 <th>Total Amount:</th>
+	 </tr>
+	</thead>
+	<tbody>  
+ 		 <tr>   
+	 <td>@Model.Id</td>
+	 <td>@Model.OrderDate</td>
+	 <td>$@Model.TotalAmount</td>
+		</tr>
+	</tbody>
+  </table>
+
+<br />
+<br />
+<br />
+<br />
+
+<h3 style="color:brown" ><i>Items In This Order </i> </h3>
+
+<table class="table text-center table-info" style="width: 50%;">
+		 <thead>
+			 <tr>
+				 <th>Product</th>
+				 <th>Quantity</th>
+				 <th>Price</th>
+			 </tr>
+		 </thead>
+		 <tbody>
+			 @foreach(var item in Model.OrderItems)
+			 {
+				 <tr>
+					 <td>@item.Product.Name</td>
+					 <td>@item.Quantity</td>
+					 <td>$@item.Price</td>
+				 </tr>
+			 }
+		 </tbody>
+ </table>
+ <p class="margin:left">
+	 <strong>Total Price :</strong>
+	 $@(Model.OrderItems.Sum(i => i.Product.Price *i.Quantity))
+</p> 
+<a href="@Url.Action("OrderHistory","Order")" class=" btn btn-secondary btn-sm float-md-start">Back To Order</a>

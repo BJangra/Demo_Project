@@ -1,0 +1,52 @@
+﻿@model FirstProject_ECommerce.Models.Order
+<h2 style="color:brown;"><i>Order Manage</i></h2>
+
+<table class="table text-center table-info" style="width: 87%; ">
+	<thead>
+		<tr>
+			<th>Order Id </th>
+			<th>Status</th>
+			<th>User Id</th>
+			<th>Total Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>@Model.Id</td>
+			<td>@Model.Status</td>
+			<td>@Model.UserId</td>
+			<td>@Model.TotalAmount</td>
+		</tr>
+		</tbody>
+		</table>
+
+
+<h2 style="color:brown; "><i>Order Items </i></h2>
+
+<table class="table text-center table-info" style="width: 87%;">
+<thead>
+	<tr>
+<th>Product</th>
+<th>Quantity</th>
+<th>Price</th>
+	</tr>
+</thead>
+
+<tbody>
+	@foreach(var item in Model.OrderItems)
+	{
+		<tr>
+			<td>@item.Product.Name</td>
+			<td>@item.Quantity</td>
+			<td>@item.Price</td>
+		</tr>
+	}
+</tbody>
+</table>
+<dl class="row">
+<dd class="col-sm-10">
+<a style="align-content:baseline center;" asp-action="Index" class="btn btn-secondary btn-sm">
+	Back To Orders
+</a>
+</dd>
+</dl>

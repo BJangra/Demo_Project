@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.card img{
+    height:200px;
+    width:200px;
+    
+}
+.card{
+    transition:transform 0.2s;
+}
+.card :hover{
+    transform:scale(1.05);
+}
+.navbar-nav .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.navbar-nav  .nav-link :hover {
+    background-color: black;
+    color: #000 !important;
+}

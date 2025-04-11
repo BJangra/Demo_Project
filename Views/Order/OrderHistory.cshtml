@@ -1,0 +1,35 @@
+﻿@model List<FirstProject_ECommerce.Models.Order>
+<h2 style="color:brown" class="text-center"><i>My Order History </i></h2>
+@if(Model.Count == 0)
+{
+	<p style="color:brown" class="text-center" >No Order Found</p>
+}
+else
+{
+	<table class="table text-center table-info" style="width: 50%; margin:auto">
+		<thead>
+			<tr>
+				<th>Order Id</th>
+				<th>Date</th>
+				<th>Total Amount </th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var order in Model)
+			{
+				<tr>
+					<td>@order.Id</td>
+					<td>@order.OrderDate.ToShortDateString()</td>
+					<td>$@order.TotalAmount</td>
+				
+					<td> <a href="@Url.Action("OrderDetails","Order", new{id = order.Id})" class="btn btn-secondary btn-sm">View</a>
+						<a href="@Url.Action("OrderConfirmation","Order", new{id = order.Id})" class="btn btn-secondary btn-sm">Back</a>
+					</td>
+						 		</tr>
+
+			
+			}
+		</tbody>
+	</table>
+}

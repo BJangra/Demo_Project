@@ -1,0 +1,37 @@
+﻿@model List<CartItem>
+
+
+<h2 style="color:brown"> <i>CheckOut </i></h2>
+@if( !Model.Any())
+{
+	<p style="color:brown"> <i>>Your Cart is empty </i></p>
+}
+else
+{
+	<table class="table text-center table-info" style="width: 50%;">
+		<tbody>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>SubTotal</th>
+			</tr>
+		</tbody>
+		<tbody>
+			@foreach(var item in Model)
+			{
+				<tr>
+					<td>@item.Product.Name</td>
+					<td>@item.Quantity</td>
+					<td>@item.Product.Price</td>
+					<td>@(item.Product.Price * item.Quantity)</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<h5>Total Amount : $@Model.Sum(i => i.Product.Price * i.Quantity)</h5>
+
+	<form asp-action="PlaceOrder" method="post">
+		<button type="submit" class="btn btn-success">Place Order</button>
+	</form>
+}
